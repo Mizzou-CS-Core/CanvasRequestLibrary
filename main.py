@@ -2,14 +2,11 @@
 import json
 from requests.models import Response
 
-
-from typing import Any, final
-from endpoints import (
+from .endpoints import (
     assignments
 )
 import requests
 
-@final
 class CanvasClient: 
     def __init__(self, url_base: str, token: str) -> None:
         self.url_base: str = url_base
