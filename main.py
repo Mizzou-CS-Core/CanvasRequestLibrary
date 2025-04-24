@@ -3,7 +3,8 @@ import json
 from requests.models import Response
 
 from .endpoints import (
-    assignments
+    assignments,
+    groups
 )
 import requests
 
@@ -18,6 +19,7 @@ class CanvasClient:
             "Accept": "application/json",
         })
         self._assignments = assignments.AssignmentService(api_client=self)
+        self._groups = groups.GroupService(api_client=self)
     def request(self, method: str, path: str, **kwargs):
         url: str = f"{self.url_base}{path}"
         resp: Response = self._session.request(method, url, **kwargs)
