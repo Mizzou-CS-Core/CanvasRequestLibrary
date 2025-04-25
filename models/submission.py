@@ -1,7 +1,7 @@
 from typing import Optional
 
 class Submission:
-    def __init__(self, assignment_id: int, attempt: int, body: str, grade: str, 
+    def __init__(self, id:int, assignment_id: int, attempt: int, body: str, grade: str, 
                  grade_matches_current_submission: bool, html_url: str, preview_url: str, 
                  score: float, submission_type: str, submitted_at: str, user_id: int, 
                  grader_id: int, graded_at: str, late: bool, assignment_visible: bool, 
@@ -11,7 +11,7 @@ class Submission:
                  assignment: Optional[dict] = None, course: Optional[dict] = None, 
                  submission_comments: Optional[list] = None, url: Optional[str] = None, 
                  user: Optional[dict] = None):
-        
+        self.id = id
         self.assignment_id = assignment_id
         self.assignment = assignment
         self.course = course
