@@ -18,5 +18,5 @@ class AssignmentService:
         json = self._api_client.request("GET", endpoint)
         if (return_json):
             return json
-        return Group.parse_groups_from_json(json)
+        return Submission.parse_json_into_submissions(json)
     
