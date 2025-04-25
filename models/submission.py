@@ -1,48 +1,71 @@
 from typing import Optional
 
+from typing import Optional
+
 class Submission:
-    def __init__(self, id:int, assignment_id: int, attempt: int, body: str, grade: str, 
-                 grade_matches_current_submission: bool, html_url: str, preview_url: str, 
-                 score: float, submission_type: str, submitted_at: str, user_id: int, 
-                 grader_id: int, graded_at: str, late: bool, assignment_visible: bool, 
-                 excused: bool, missing: bool, late_policy_status: str, points_deducted: float, 
-                 seconds_late: int, workflow_state: str, extra_attempts: int, anonymous_id: str, 
-                 posted_at: Optional[str], read_status: str, redo_request: bool, 
-                 assignment: Optional[dict] = None, course: Optional[dict] = None, 
-                 submission_comments: Optional[list] = None, url: Optional[str] = None, 
-                 user: Optional[dict] = None):
+    def __init__(self, 
+                 id: int,
+                 body: Optional[str], 
+                 url: Optional[str], 
+                 grade: str, 
+                 score: float, 
+                 submitted_at: Optional[str], 
+                 assignment_id: int, 
+                 user_id: int, 
+                 submission_type: Optional[str], 
+                 workflow_state: str, 
+                 grade_matches_current_submission: bool, 
+                 graded_at: str, 
+                 grader_id: int, 
+                 attempt: Optional[int], 
+                 cached_due_date: Optional[str], 
+                 excused: bool, 
+                 late_policy_status: Optional[str], 
+                 points_deducted: Optional[float], 
+                 grading_period_id: Optional[int], 
+                 extra_attempts: Optional[int], 
+                 posted_at: Optional[str], 
+                 redo_request: bool, 
+                 custom_grade_status_id: Optional[int], 
+                 sticker: Optional[str], 
+                 late: bool, 
+                 missing: bool, 
+                 seconds_late: int, 
+                 entered_grade: str, 
+                 entered_score: float, 
+                 preview_url: Optional[str]):
+        
         self.id = id
-        self.assignment_id = assignment_id
-        self.assignment = assignment
-        self.course = course
-        self.attempt = attempt
         self.body = body
-        self.grade = grade
-        self.grade_matches_current_submission = grade_matches_current_submission
-        self.html_url = html_url
-        self.preview_url = preview_url
-        self.score = score
-        self.submission_comments = submission_comments
-        self.submission_type = submission_type
-        self.submitted_at = submitted_at
         self.url = url
+        self.grade = grade
+        self.score = score
+        self.submitted_at = submitted_at
+        self.assignment_id = assignment_id
         self.user_id = user_id
-        self.user = user
-        self.grader_id = grader_id
+        self.submission_type = submission_type
+        self.workflow_state = workflow_state
+        self.grade_matches_current_submission = grade_matches_current_submission
         self.graded_at = graded_at
-        self.late = late
-        self.assignment_visible = assignment_visible
+        self.grader_id = grader_id
+        self.attempt = attempt
+        self.cached_due_date = cached_due_date
         self.excused = excused
-        self.missing = missing
         self.late_policy_status = late_policy_status
         self.points_deducted = points_deducted
-        self.seconds_late = seconds_late
-        self.workflow_state = workflow_state
+        self.grading_period_id = grading_period_id
         self.extra_attempts = extra_attempts
-        self.anonymous_id = anonymous_id
         self.posted_at = posted_at
-        self.read_status = read_status
         self.redo_request = redo_request
+        self.custom_grade_status_id = custom_grade_status_id
+        self.sticker = sticker
+        self.late = late
+        self.missing = missing
+        self.seconds_late = seconds_late
+        self.entered_grade = entered_grade
+        self.entered_score = entered_score
+        self.preview_url = preview_url
+
     def parse_json_into_submissions(submission_json):
         submissions = []
         for body in submission_json:
