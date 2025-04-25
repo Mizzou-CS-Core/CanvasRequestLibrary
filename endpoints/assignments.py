@@ -1,4 +1,5 @@
 from  CanvasRequestLibrary.models.assignment import Assignment
+from CanvasRequestLibrary.models.group import Group
 
 class AssignmentService:
     def __init__(self, api_client) -> None:
@@ -11,4 +12,11 @@ class AssignmentService:
         if (return_json):
             return json
         return Assignment.parse_json_into_assignments(assignment_json=json)
+    def get_submissions_from_assignment(self, course_id: int, assignment_id: int, per_page: int = 10, return_json = False):
+        options = f"per_page={per_page}"
+        endpoint: str = f"courses/{str(course_id)}/assignments/{assignment_id}/submissions?{options}"
+        json = self._api_client.request("GET", endpoint)
+        if (return_json):
+            return json
+        return Group.parse_groups_from_json(json)
     
