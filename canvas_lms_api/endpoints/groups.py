@@ -1,5 +1,5 @@
-from CanvasRequestLibrary.models.group import Group
-from CanvasRequestLibrary.models.person import Person
+from canvas_lms_api.models.group import Group
+from canvas_lms_api.models.person import Person
 class GroupService:
     def __init__(self, api_client) -> None:
         self._api_client = api_client

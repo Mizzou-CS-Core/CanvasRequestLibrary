@@ -1,5 +1,5 @@
-from  CanvasRequestLibrary.models.assignment import Assignment
-from CanvasRequestLibrary.models.submission import Submission
+from canvas_lms_api.models.assignment import Assignment
+from canvas_lms_api.models.submission import Submission
 
 class AssignmentService:
     def __init__(self, api_client) -> None:
