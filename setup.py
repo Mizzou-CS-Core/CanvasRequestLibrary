@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-  name="CanvasRequestLibrary",
-  version="0.2.6",
+  name="canvas_lms_api",
+  version="0.3.0",
   packages=find_packages(),
 )
