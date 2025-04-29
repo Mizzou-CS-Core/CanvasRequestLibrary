@@ -1,0 +1,14 @@
+from canvas_lms_api.models.course import Course
+from typing import Optional
+class CourseService:
+    def __init__(self, api_client) -> None:
+        self._api_client = api_client
+    def get_course(self, course_id: int, return_json: bool = False, includes: Optional[list[str]] = None,):
+        q = ""
+        if includes:
+            q = "?" + "&".join(f"include={i}" for i in includes)
+        endpoint: str = f"courses/{course_id}{q}"
+        json = self._api_client.request("GET", endpoint)
+        if return_json:
+            return json
+        return Course.from_json(json)
