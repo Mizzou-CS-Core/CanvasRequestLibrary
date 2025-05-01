@@ -9,5 +9,5 @@ class Person:
     def parse_people_from_json(people_json) -> []:
         people = []
         for body in people_json:
-            people.append(Person(name=body['name'], canvas_id=body['id'], login_id=body['login_id'], sortable_name=body['sortable_name'], email=body['email'] or ""))
+            people.append(Person(name=body['name'], canvas_id=body['id'], login_id=body['login_id'], sortable_name=body['sortable_name'], email=body.get("email") or ""))
         return people
