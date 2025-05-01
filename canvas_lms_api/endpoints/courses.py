@@ -12,3 +12,10 @@ class CourseService:
         if return_json:
             return json
         return Course.from_json(json)
+    def get_people_from_course(self, course_id: int, return_json: bool = False, per_page: int=100)
+        options = f"per_page={per_page}"
+        endpoint: str = f"courses/{course_id}/search_users?{options}"
+        json = self._api_client.request("GET", endpoint)
+        if return_json:
+            return json
+        return Person.parse_people_from_json(json)
