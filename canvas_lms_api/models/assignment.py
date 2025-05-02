@@ -1,26 +1,38 @@
 class Assignment:
-    def __init__(self, id, name, description, created_at, updated_at, due_at=None, lock_at=None, unlock_at=None, 
-                 has_overrides=False, all_dates=None, course_id=None, html_url=None, submissions_download_url=None, 
-                 assignment_group_id=None, due_date_required=False, allowed_extensions=None, max_name_length=255, 
-                 turnitin_enabled=False, vericite_enabled=False, turnitin_settings=None, grade_group_students_individually=False, 
-                 external_tool_tag_attributes=None, peer_reviews=False, automatic_peer_reviews=False, peer_review_count=0, 
-                 peer_reviews_assign_at=None, intra_group_peer_reviews=False, group_category_id=None, needs_grading_count=0, 
-                 needs_grading_count_by_section=None, position=0, post_to_sis=False, integration_id=None, integration_data=None, 
-                 points_possible=0, submission_types=None, has_submitted_submissions=False, grading_type=None, grading_standard_id=None, 
-                 published=False, unpublishable=False, only_visible_to_overrides=False, locked_for_user=False, lock_info=None, 
-                 lock_explanation=None, quiz_id=None, anonymous_submissions=False, discussion_topic=None, freeze_on_copy=False, 
-                 frozen=False, frozen_attributes=None, submission=None, use_rubric_for_grading=False, rubric_settings=None, 
-                 rubric=None, assignment_visibility=None, overrides=None, omit_from_final_grade=False, hide_in_gradebook=False, 
-                 moderated_grading=False, grader_count=0, final_grader_id=None, grader_comments_visible_to_graders=True, 
-                 graders_anonymous_to_graders=False, grader_names_visible_to_final_grader=True, anonymous_grading=False, 
-                 allowed_attempts=-1, post_manually=False, score_statistics=None, can_submit=False, ab_guid=None, 
-                 annotatable_attachment_id=None, anonymize_students=False, require_lockdown_browser=False, important_dates=False, 
-                 muted=False, anonymous_peer_reviews=False, anonymous_instructor_annotations=False, graded_submissions_exist=False, 
-                 is_quiz_assignment=False, in_closed_grading_period=False, can_duplicate=False, original_course_id=None, 
-                 original_assignment_id=None, original_lti_resource_link_id=None, original_assignment_name=None, original_quiz_id=None, 
-                 workflow_state=None, secure_params=None, lti_context_id=None, visible_to_everyone=False, restrict_quantitative_data=False, free_form_criterion_comments = False):
-        
-        self.id = id
+    def __init__(self, canvas_id, name, description, created_at, updated_at, due_at=None, lock_at=None, unlock_at=None,
+                 has_overrides=False, all_dates=None, course_id=None, html_url=None, submissions_download_url=None,
+                 assignment_group_id=None, due_date_required=False, allowed_extensions=None, max_name_length=255,
+                 turnitin_enabled=False, vericite_enabled=False, turnitin_settings=None,
+                 grade_group_students_individually=False,
+                 external_tool_tag_attributes=None, peer_reviews=False, automatic_peer_reviews=False,
+                 peer_review_count=0,
+                 peer_reviews_assign_at=None, intra_group_peer_reviews=False, group_category_id=None,
+                 needs_grading_count=0,
+                 needs_grading_count_by_section=None, position=0, post_to_sis=False, integration_id=None,
+                 integration_data=None,
+                 points_possible=0, submission_types=None, has_submitted_submissions=False, grading_type=None,
+                 grading_standard_id=None,
+                 published=False, unpublishable=False, only_visible_to_overrides=False, locked_for_user=False,
+                 lock_info=None,
+                 lock_explanation=None, quiz_id=None, anonymous_submissions=False, discussion_topic=None,
+                 freeze_on_copy=False,
+                 frozen=False, frozen_attributes=None, submission=None, use_rubric_for_grading=False,
+                 rubric_settings=None,
+                 rubric=None, assignment_visibility=None, overrides=None, omit_from_final_grade=False,
+                 hide_in_gradebook=False,
+                 moderated_grading=False, grader_count=0, final_grader_id=None, grader_comments_visible_to_graders=True,
+                 graders_anonymous_to_graders=False, grader_names_visible_to_final_grader=True, anonymous_grading=False,
+                 allowed_attempts=-1, post_manually=False, score_statistics=None, can_submit=False, ab_guid=None,
+                 annotatable_attachment_id=None, anonymize_students=False, require_lockdown_browser=False,
+                 important_dates=False,
+                 muted=False, anonymous_peer_reviews=False, anonymous_instructor_annotations=False,
+                 graded_submissions_exist=False,
+                 is_quiz_assignment=False, in_closed_grading_period=False, can_duplicate=False, original_course_id=None,
+                 original_assignment_id=None, original_lti_resource_link_id=None, original_assignment_name=None,
+                 original_quiz_id=None,
+                 workflow_state=None, secure_params=None, lti_context_id=None, visible_to_everyone=False,
+                 restrict_quantitative_data=False, free_form_criterion_comments=False):
+        self.id = canvas_id
         self.name = name
         self.description = description
         self.created_at = created_at
@@ -114,6 +126,7 @@ class Assignment:
         self.restrict_quantitative_data = restrict_quantitative_data
         self.free_form_criterion_comments = free_form_criterion_comments
 
+    @staticmethod
     def parse_json_into_assignments(assignment_json):
         assignments = []
         for body in assignment_json:

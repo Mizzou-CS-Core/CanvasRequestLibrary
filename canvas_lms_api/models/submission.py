@@ -1,41 +1,39 @@
 from typing import Optional
 
-from typing import Optional
 
 class Submission:
-    def __init__(self, 
-                 id: int,
-                 body: Optional[str], 
-                 url: Optional[str], 
-                 grade: str, 
-                 score: float, 
-                 submitted_at: Optional[str], 
-                 assignment_id: int, 
-                 user_id: int, 
-                 submission_type: Optional[str], 
-                 workflow_state: str, 
-                 grade_matches_current_submission: bool, 
-                 graded_at: str, 
-                 grader_id: int, 
-                 attempt: Optional[int], 
-                 cached_due_date: Optional[str], 
-                 excused: bool, 
-                 late_policy_status: Optional[str], 
-                 points_deducted: Optional[float], 
-                 grading_period_id: Optional[int], 
-                 extra_attempts: Optional[int], 
-                 posted_at: Optional[str], 
-                 redo_request: bool, 
-                 custom_grade_status_id: Optional[int], 
-                 sticker: Optional[str], 
-                 late: bool, 
-                 missing: bool, 
-                 seconds_late: int, 
-                 entered_grade: str, 
-                 entered_score: float, 
+    def __init__(self,
+                 canvas_id: int,
+                 body: Optional[str],
+                 url: Optional[str],
+                 grade: str,
+                 score: float,
+                 submitted_at: Optional[str],
+                 assignment_id: int,
+                 user_id: int,
+                 submission_type: Optional[str],
+                 workflow_state: str,
+                 grade_matches_current_submission: bool,
+                 graded_at: str,
+                 grader_id: int,
+                 attempt: Optional[int],
+                 cached_due_date: Optional[str],
+                 excused: bool,
+                 late_policy_status: Optional[str],
+                 points_deducted: Optional[float],
+                 grading_period_id: Optional[int],
+                 extra_attempts: Optional[int],
+                 posted_at: Optional[str],
+                 redo_request: bool,
+                 custom_grade_status_id: Optional[int],
+                 sticker: Optional[str],
+                 late: bool,
+                 missing: bool,
+                 seconds_late: int,
+                 entered_grade: str,
+                 entered_score: float,
                  preview_url: Optional[str]):
-        
-        self.id = id
+        self.id = canvas_id
         self.body = body
         self.url = url
         self.grade = grade
@@ -66,6 +64,7 @@ class Submission:
         self.entered_score = entered_score
         self.preview_url = preview_url
 
+    @staticmethod
     def parse_json_into_submissions(submission_json):
         submissions = []
         for body in submission_json:
