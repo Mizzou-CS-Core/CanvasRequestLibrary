@@ -1,4 +1,5 @@
 from canvas_lms_api.models.course import Course
+from canvas_lms_api.models.person import Person
 from typing import Optional
 
 
