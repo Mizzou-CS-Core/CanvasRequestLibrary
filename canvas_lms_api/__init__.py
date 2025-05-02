@@ -12,6 +12,7 @@ logger = logging.getLogger(__name__)
 # Module‐level storage
 _client: CanvasClient | None = None
 
+
 def init(url_base: str, token: str) -> None:
     """
     Call once at startup with your Canvas base URL and API token.
@@ -26,6 +27,7 @@ def init(url_base: str, token: str) -> None:
     logger.debug(f"Initializing CanvasClient for {url_base!r}")
     _client = CanvasClient(url_base=url_base, token=token)
     logger.info("CanvasClient ready")
+
 
 def get_client() -> CanvasClient:
     """
