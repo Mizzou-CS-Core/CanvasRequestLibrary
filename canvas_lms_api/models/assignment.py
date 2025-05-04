@@ -1,5 +1,5 @@
 class Assignment:
-    def __init__(self, canvas_id, name, description, created_at, updated_at, due_at=None, lock_at=None, unlock_at=None,
+    def __init__(self, id, name, description, created_at, updated_at, due_at=None, lock_at=None, unlock_at=None,
                  has_overrides=False, all_dates=None, course_id=None, html_url=None, submissions_download_url=None,
                  assignment_group_id=None, due_date_required=False, allowed_extensions=None, max_name_length=255,
                  turnitin_enabled=False, vericite_enabled=False, turnitin_settings=None,
@@ -32,7 +32,7 @@ class Assignment:
                  original_quiz_id=None,
                  workflow_state=None, secure_params=None, lti_context_id=None, visible_to_everyone=False,
                  restrict_quantitative_data=False, free_form_criterion_comments=False):
-        self.id = canvas_id
+        self.id = id
         self.name = name
         self.description = description
         self.created_at = created_at
